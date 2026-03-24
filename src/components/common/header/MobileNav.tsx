@@ -5,9 +5,10 @@ import { FaArrowLeft } from 'react-icons/fa';
 interface MobileNavProps {
   isProductPage: boolean;
   productName: string;
+  onMenuClick?: () => void;
 }
 
-export function MobileNav({ isProductPage, productName }: MobileNavProps) {
+export function MobileNav({ isProductPage, productName, onMenuClick }: MobileNavProps) {
   if (isProductPage) {
     return (
       <div className="flex items-center gap-3">
@@ -26,7 +27,7 @@ export function MobileNav({ isProductPage, productName }: MobileNavProps) {
   }
 
   return (
-    <Link href="/" className="flex-shrink-0">
+    <Link href="/" className="flex-shrink-0" onClick={onMenuClick}>
       <Image
         src="/vercel.svg"
         alt="Ice Dreams Logo"
