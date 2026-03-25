@@ -5,8 +5,7 @@ import type { Product } from '@/services/types';
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props: any) => {
-    const { fill, className, sizes, alt, src } = props;
-    return <img data-testid="product-image" alt={alt} src={src} />;
+    return <img data-testid="product-image" alt={props.alt} src={props.src} />;
   },
 }));
 
@@ -20,43 +19,40 @@ jest.mock('next/link', () => {
   return MockedLink;
 });
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children, className }: any) {
-    return <div data-testid="card" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children, className }: any) => (
+    <div data-testid="card" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children, className }: any) {
-    return <div data-testid="card-content" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children, className }: any) => (
+    <div data-testid="card-content" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardMedia', () => {
-  return function MockCardMedia({ children, component, className }: any) {
-    return <div data-testid="card-media" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardMedia', () => ({
+  CardMedia: ({ children, className }: any) => (
+    <div data-testid="card-media" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardActions', () => {
-  return function MockCardActions({ children, className }: any) {
-    return <div data-testid="card-actions" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardActions', () => ({
+  CardActions: ({ children, className }: any) => (
+    <div data-testid="card-actions" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Typography', () => {
-  return function MockTypography({ children, variant, component, className }: any) {
-    const Component = component || 'div';
-    return (
-      <div data-testid={`typography-${variant}`} className={className} as={Component}>
-        {children}
-      </div>
-    );
-  };
-});
+jest.mock('@/components/ui/Typography', () => ({
+  Typography: ({ children, variant, className }: any) => (
+    <div data-testid={`typography-${variant}`} className={className}>
+      {children}
+    </div>
+  ),
+}));
 
-jest.mock('@mui/material/Button', () => {
-  return function MockButton({ children, onClick, component: Component, href, variant, fullWidth, className }: any) {
+jest.mock('@/components/ui/Button', () => ({
+  Button: ({ children, component: Component, href, className }: any) => {
     if (Component) {
       return (
         <Component href={href} data-testid="button-link" className={className}>
@@ -69,8 +65,8 @@ jest.mock('@mui/material/Button', () => {
         {children}
       </button>
     );
-  };
-});
+  },
+}));
 
 const mockProduct: Product = {
   id: 1,
@@ -130,7 +126,7 @@ describe('ProductCard', () => {
     const imageLink = links.find(link => link.querySelector('[data-testid="product-image"]'));
     expect(imageLink).toBeInTheDocument();
     expect(imageLink).toHaveAttribute('href', '/products/1');
-    });
+  });
 
   it('should have button linking to product page', () => {
     render(<ProductCard product={mockProduct} />);
@@ -139,7 +135,7 @@ describe('ProductCard', () => {
     const buttonLink = button.closest('a');
     expect(buttonLink).toBeInTheDocument();
     expect(buttonLink).toHaveAttribute('href', '/products/1');
-    });
+  });
 
   it('should have all links pointing to same product page', () => {
     render(<ProductCard product={mockProduct} />);
@@ -171,6 +167,7 @@ describe('ProductCard', () => {
     
     const category = screen.getByTestId('typography-body2');
     expect(category).toBeInTheDocument();
+    expect(category).toHaveTextContent('electronics');
   });
 
   it('should render price with h6 variant', () => {
@@ -210,13 +207,6 @@ describe('ProductCard', () => {
     render(<ProductCard product={longTitleProduct} />);
     
     expect(screen.getByText(longTitleProduct.title)).toBeInTheDocument();
-  });
-
-  it('should have image with fill attribute', () => {
-    render(<ProductCard product={mockProduct} />);
-    
-    const image = screen.getByTestId('product-image');
-    expect(image).toBeInTheDocument();
   });
 
   it('should have button text "Ver mais"', () => {

@@ -6,33 +6,31 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children }: any) {
-    return <div data-testid="card">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children }: any) => (
+    <div data-testid="card">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Typography', () => {
-  return function MockTypography({ children, variant }: any) {
-    return <div data-testid={`typography-${variant}`}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Typography', () => ({
+  Typography: ({ children, variant }: any) => (
+    <div data-testid={`typography-${variant}`}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Button', () => {
-  return function MockButton({ children, onClick }: any) {
-    return (
-      <button data-testid={`button-${children.toLowerCase().replace(/\s/g, '-')}`} onClick={onClick}>
-        {children}
-      </button>
-    );
-  };
-});
+jest.mock('@/components/ui/Button', () => ({
+  Button: ({ children, onClick }: any) => (
+    <button data-testid={`button-${children.toLowerCase().replace(/\s/g, '-')}`} onClick={onClick}>
+      {children}
+    </button>
+  ),
+}));
 
 describe('ProductError', () => {
   const mockBack = jest.fn();

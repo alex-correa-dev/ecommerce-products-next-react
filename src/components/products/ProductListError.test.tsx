@@ -1,37 +1,33 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ProductListError } from './ProductListError';
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children, className }: any) {
-    return <div data-testid="card" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children, className }: any) => (
+    <div data-testid="card" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Typography', () => {
-  return function MockTypography({ children, variant, className }: any) {
-    return (
-      <div data-testid={`typography-${variant}`} className={className}>
-        {children}
-      </div>
-    );
-  };
-});
+jest.mock('@/components/ui/Typography', () => ({
+  Typography: ({ children, variant, className }: any) => (
+    <div data-testid={`typography-${variant}`} className={className}>
+      {children}
+    </div>
+  ),
+}));
 
-jest.mock('@mui/material/Button', () => {
-  return function MockButton({ children, onClick, variant, className }: any) {
-    return (
-      <button data-testid="retry-button" onClick={onClick} className={className}>
-        {children}
-      </button>
-    );
-  };
-});
+jest.mock('@/components/ui/Button', () => ({
+  Button: ({ children, onClick, className }: any) => (
+    <button data-testid="retry-button" onClick={onClick} className={className}>
+      {children}
+    </button>
+  ),
+}));
 
 describe('ProductListError', () => {
   const mockError = new Error('Failed to fetch products');

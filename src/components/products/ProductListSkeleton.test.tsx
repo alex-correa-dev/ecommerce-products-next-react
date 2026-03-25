@@ -1,30 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import { ProductListSkeleton } from './ProductListSkeleton';
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children, className }: any) {
-    return <div data-testid="card" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children, className }: any) => (
+    <div data-testid="card" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Skeleton', () => {
-  return function MockSkeleton({ variant, height, width, className }: any) {
-    return (
-      <div 
-        data-testid={`skeleton-${variant}`} 
-        data-height={height}
-        data-width={width}
-        className={className}
-      />
-    );
-  };
-});
+jest.mock('@/components/ui/Skeleton', () => ({
+  Skeleton: ({ variant, height, width, className }: any) => (
+    <div 
+      data-testid={`skeleton-${variant}`} 
+      data-height={height}
+      data-width={width}
+      className={className}
+    />
+  ),
+}));
 
 describe('ProductListSkeleton', () => {
   it('should render 8 skeleton cards', () => {

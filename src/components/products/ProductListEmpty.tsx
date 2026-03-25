@@ -1,8 +1,8 @@
 'use client';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import { Card } from '../ui/Card';
+import { CardContent } from '../ui/CardContent';
+import { Typography } from '../ui/Typography';
 
 export function ProductListEmpty() {
   return (

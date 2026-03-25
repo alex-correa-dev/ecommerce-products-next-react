@@ -26,34 +26,34 @@ jest.mock('./ProductError', () => ({
   ),
 }));
 
-jest.mock('@mui/material/Typography', () => {
-  return function MockTypography({ children, variant, component }: any) {
+jest.mock('@/components/ui/Typography', () => ({
+  Typography: ({ children, variant, component }: any) => {
     const Component = component || 'div';
     return (
       <div data-testid={`typography-${variant}`} as={Component}>
         {children}
       </div>
     );
-  };
-});
+  },
+}));
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children }: any) {
-    return <div data-testid="card">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children }: any) => (
+    <div data-testid="card">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Button', () => {
-  return function MockButton({ children }: any) {
-    return <button data-testid="add-to-cart-button">{children}</button>;
-  };
-});
+jest.mock('@/components/ui/Button', () => ({
+  Button: ({ children }: any) => (
+    <button data-testid="add-to-cart-button">{children}</button>
+  ),
+}));
 
 const mockProduct: Product = {
   id: 1,

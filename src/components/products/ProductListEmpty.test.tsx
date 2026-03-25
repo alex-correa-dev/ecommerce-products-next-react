@@ -1,27 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import { ProductListEmpty } from './ProductListEmpty';
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children, className }: any) {
-    return <div data-testid="card" className={className}>{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children, className }: any) => (
+    <div data-testid="card" className={className}>{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Typography', () => {
-  return function MockTypography({ children, variant, className }: any) {
-    return (
-      <div data-testid={`typography-${variant}`} className={className}>
-        {children}
-      </div>
-    );
-  };
-});
+jest.mock('@/components/ui/Typography', () => ({
+  Typography: ({ children, variant, className }: any) => (
+    <div data-testid={`typography-${variant}`} className={className}>
+      {children}
+    </div>
+  ),
+}));
 
 describe('ProductListEmpty', () => {
   it('should render empty state message', () => {

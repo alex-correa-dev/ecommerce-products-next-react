@@ -1,9 +1,9 @@
 'use client';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Card } from '../ui/Card';
+import { CardContent } from '../ui/CardContent';
+import { Typography } from '../ui/Typography';
+import { Button } from '../ui/Button';
 import { useRouter } from 'next/navigation';
 
 interface ProductErrorProps {

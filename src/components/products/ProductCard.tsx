@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CardActions from '@mui/material/CardActions';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { Card } from '../ui/Card';
+import { CardContent } from '../ui/CardContent';
+import { CardMedia } from '../ui/CardMedia';
+import { CardActions } from '../ui/CardActions';
+import { Typography } from '../ui/Typography';
+import { Button } from '../ui/Button';
 import { ProductCardProps } from './types';
 
 export function ProductCard({ product }: ProductCardProps) {

@@ -1,8 +1,8 @@
 'use client';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Skeleton from '@mui/material/Skeleton';
+import { Card } from '../ui/Card';
+import { CardContent } from '../ui/CardContent';
+import { Skeleton } from '../ui/Skeleton';
 
 export function ProductListSkeleton() {
   return (

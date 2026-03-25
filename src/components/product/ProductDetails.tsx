@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useProduct } from '../../app/hooks/useProduct';
 import { ProductSkeleton } from './ProductSkeleton';
 import { ProductError } from './ProductError';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import { Typography } from '../ui/Typography';
+import { Card } from '../ui/Card';
+import { CardContent } from '../ui/CardContent';
+import { Button } from '../ui/Button';
 import { FaStar } from 'react-icons/fa';
 
 interface ProductDetailsProps {

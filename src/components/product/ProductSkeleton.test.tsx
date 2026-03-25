@@ -1,27 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import { ProductSkeleton } from './ProductSkeleton';
 
-jest.mock('@mui/material/Card', () => {
-  return function MockCard({ children }: any) {
-    return <div data-testid="card">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/Card', () => ({
+  Card: ({ children }: any) => (
+    <div data-testid="card">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/CardContent', () => {
-  return function MockCardContent({ children }: any) {
-    return <div data-testid="card-content">{children}</div>;
-  };
-});
+jest.mock('@/components/ui/CardContent', () => ({
+  CardContent: ({ children }: any) => (
+    <div data-testid="card-content">{children}</div>
+  ),
+}));
 
-jest.mock('@mui/material/Skeleton', () => {
-  return function MockSkeleton({ variant, width, height }: any) {
-    return (
-      <div data-testid={`skeleton-${variant}`} data-width={width} data-height={height}>
-        Loading...
-      </div>
-    );
-  };
-});
+jest.mock('@/components/ui/Skeleton', () => ({
+  Skeleton: ({ variant, width, height }: any) => (
+    <div data-testid={`skeleton-${variant}`} data-width={width} data-height={height}>
+      Loading...
+    </div>
+  ),
+}));
 
 describe('ProductSkeleton', () => {
   it('should render image skeleton', () => {
@@ -93,8 +91,9 @@ describe('ProductSkeleton', () => {
     
     const card = screen.getByTestId('card');
     const cardContent = screen.getByTestId('card-content');
-    const additionalInfoTitle = screen.getAllByTestId('skeleton-text')[6];
-    const infoLines = screen.getAllByTestId('skeleton-text').slice(7, 10);
+    const textSkeletons = screen.getAllByTestId('skeleton-text');
+    const additionalInfoTitle = textSkeletons[6];
+    const infoLines = textSkeletons.slice(7, 10);
     
     expect(card).toBeInTheDocument();
     expect(cardContent).toBeInTheDocument();
@@ -112,7 +111,8 @@ describe('ProductSkeleton', () => {
   it('should render button skeleton', () => {
     render(<ProductSkeleton />);
     
-    const buttonSkeleton = screen.getAllByTestId('skeleton-rectangular')[1];
+    const rectangularSkeletons = screen.getAllByTestId('skeleton-rectangular');
+    const buttonSkeleton = rectangularSkeletons[1];
     expect(buttonSkeleton).toBeInTheDocument();
     expect(buttonSkeleton).toHaveAttribute('data-height', '48');
   });
@@ -134,12 +134,13 @@ describe('ProductSkeleton', () => {
     const imageSkeleton = rectangularSkeletons[0];
     expect(imageSkeleton).toBeInTheDocument();
     expect(imageSkeleton).toHaveAttribute('data-height', '100%');
-    });
+  });
 
   it('should render button skeleton with rectangular variant', () => {
     render(<ProductSkeleton />);
     
-    const buttonSkeleton = screen.getAllByTestId('skeleton-rectangular')[1];
+    const rectangularSkeletons = screen.getAllByTestId('skeleton-rectangular');
+    const buttonSkeleton = rectangularSkeletons[1];
     expect(buttonSkeleton).toBeInTheDocument();
   });
 
