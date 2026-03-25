@@ -130,6 +130,15 @@ O projeto está configurado para deploy na [Vercel](https://vercel.com/). Acesse
 
 [https://ecommerce-products-next-react.vercel.app/](https://ecommerce-products-next-react.vercel.app/)
 
+### Uso de IA neste Projeto
+
+Este projeto utilizou IA [Deepseek](https://www.deepseek.com/) como ferramenta de apoio durante o desenvolvimento. As interações seguiram as diretrizes documentadas nas pastas `rules`, `prompts` e `skills`.
+
+## Estratégia
+- A IA foi usada para acelerar a criação de componentes repetitivos e testes
+- Todo código gerado foi revisado, testado e ajustado manualmente
+- As decisões arquiteturais e de negócio foram tomadas pelo desenvolvedor
+
 ### Licença
 
 Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://license/) para mais informações.
