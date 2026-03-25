@@ -1,6 +1,6 @@
 'use client';
 
-import { useProducts } from '../../app/hooks/useProducts';
+import { useProducts } from '../../hooks/useProducts';
 import { ProductList } from './ProductList';
 
 export function ProductsContainer() {

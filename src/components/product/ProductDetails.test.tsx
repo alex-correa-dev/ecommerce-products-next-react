@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { ProductDetails } from './ProductDetails';
-import { useProduct } from '../../app/hooks/useProduct';
-import type { Product } from '../../app/services/types';
+import { useProduct } from '../../hooks/useProduct';
+import type { Product } from '../../services/types';
 
-jest.mock('../../app/hooks/useProduct');
+jest.mock('../../hooks/useProduct');
 
 jest.mock('next/image', () => ({
   __esModule: true,

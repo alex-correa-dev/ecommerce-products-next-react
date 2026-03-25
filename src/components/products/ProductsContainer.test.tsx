@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { ProductsContainer } from './ProductsContainer';
-import { useProducts } from '../../app/hooks/useProducts';
-import type { Product } from '../../app/services/types';
+import { useProducts } from '../../hooks/useProducts';
+import type { Product } from '../../services/types';
 
-jest.mock('../../app/hooks/useProducts');
+jest.mock('../../hooks/useProducts');
 
 jest.mock('./ProductList', () => ({
   ProductList: ({ products, isLoading, error }: any) => (

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useProduct } from '../../app/hooks/useProduct';
+import { useProduct } from '../../hooks/useProduct';
 import { ProductSkeleton } from './ProductSkeleton';
 import { ProductError } from './ProductError';
 import { Typography } from '../ui/Typography';
