@@ -18,6 +18,7 @@ export interface ButtonProps {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   href?: string;
+  component?: React.ElementType;
 }
 
 export function Button({ 
@@ -33,21 +34,34 @@ export function Button({
   startIcon,
   endIcon,
   href,
+  component,
 }: ButtonProps) {
+  const props: any = {
+    variant,
+    color,
+    size,
+    disabled,
+    fullWidth,
+    className,
+    type,
+    startIcon,
+    endIcon,
+  };
+
+  if (onClick) {
+    props.onClick = onClick;
+  }
+
+  if (href) {
+    props.href = href;
+  }
+
+  if (component) {
+    props.component = component;
+  }
+
   return (
-    <MuiButton
-      variant={variant}
-      color={color}
-      size={size}
-      disabled={disabled}
-      fullWidth={fullWidth}
-      className={className}
-      type={type}
-      startIcon={startIcon}
-      endIcon={endIcon}
-      href={href}
-      onClick={onClick}
-    >
+    <MuiButton {...props}>
       {children}
     </MuiButton>
   );
