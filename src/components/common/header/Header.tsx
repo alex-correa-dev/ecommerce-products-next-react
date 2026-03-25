@@ -16,7 +16,7 @@ export function Header() {
   const productName = isProductPage ? 'Produto' : '';
 
   return (
-    <header className="bg-gray-100 lg:bg-white lg:rounded-full w-full shadow-sm sticky top-0 z-50 max-w-3xl lg:mt-5">
+    <header className="bg-gray-100 lg:bg-white lg:rounded-full w-full shadow-sm sticky top-0 z-50 lg:mt-5">
       <div className="container mx-auto px-4">
         <div className="hidden lg:flex items-center justify-between py-4">
           <div className="flex items-center gap-8">
