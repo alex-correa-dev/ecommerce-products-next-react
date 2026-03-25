@@ -11,8 +11,10 @@ jest.mock('next/link', () => {
   return MockedLink;
 });
 
-jest.mock('react-icons/fa', () => ({
-  FaTimes: () => <svg data-testid="close-icon" />,
+jest.mock('@/components/icons/Icons', () => ({
+  Icons: {
+    FaTimes: () => <svg data-testid="close-icon" />,
+  },
 }));
 
 describe('MobileMenu', () => {

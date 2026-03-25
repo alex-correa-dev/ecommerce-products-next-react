@@ -12,8 +12,10 @@ jest.mock('next/image', () => ({
   },
 }));
 
-jest.mock('react-icons/fa', () => ({
-  FaStar: ({ className }: any) => <div data-testid="star-icon" className={className} />,
+jest.mock('@/components/icons/Icons', () => ({
+  Icons: {
+    FaStar: ({ className }: any) => <div data-testid="star-icon" className={className} />,
+  },
 }));
 
 jest.mock('./ProductSkeleton', () => ({

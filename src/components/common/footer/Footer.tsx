@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { Icons } from '../../icons/Icons';
 
 export function Footer() {
   return (
@@ -29,7 +29,7 @@ export function Footer() {
                 className="hover:opacity-80 transition-opacity"
                 aria-label="YouTube"
               >
-                <FaYoutube size={24} />
+                <Icons.FaYoutube size={24} />
               </a>
               <a
                 href="https://facebook.com"
@@ -38,7 +38,7 @@ export function Footer() {
                 className="hover:opacity-80 transition-opacity"
                 aria-label="Facebook"
               >
-                <FaFacebook size={24} />
+                <Icons.FaFacebook size={24} />
               </a>
               <a
                 href="https://instagram.com"
@@ -47,7 +47,7 @@ export function Footer() {
                 className="hover:opacity-80 transition-opacity"
                 aria-label="Instagram"
               >
-                <FaInstagram size={24} />
+                <Icons.FaInstagram size={24} />
               </a>
             </div>
           </div>

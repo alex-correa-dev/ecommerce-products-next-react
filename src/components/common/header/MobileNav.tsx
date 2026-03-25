@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowLeft } from 'react-icons/fa';
+import { Icons } from '../../icons/Icons';
 
 interface MobileNavProps {
   isProductPage: boolean;
@@ -17,7 +17,7 @@ export function MobileNav({ isProductPage, productName, onMenuClick }: MobileNav
           className="hover:opacity-80 transition-opacity"
           aria-label="Go back"
         >
-          <FaArrowLeft size={20} />
+          <Icons.FaArrowLeft size={20} />
         </Link>
         <span className="font-medium truncate max-w-[200px]">
           {productName}

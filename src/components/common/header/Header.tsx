@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaUser, FaShoppingCart, FaBars } from 'react-icons/fa';
+import { Icons } from '../../icons/Icons';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import { MobileMenu } from './MobileMenu';
@@ -36,13 +36,13 @@ export function Header() {
               aria-label="User account"
               className="hover:opacity-80 transition-opacity"
             >
-              <FaUser size={20} />
+              <Icons.FaUser size={20} />
             </button>
             <button
               aria-label="Shopping cart"
               className="hover:opacity-80 transition-opacity"
             >
-              <FaShoppingCart size={20} />
+              <Icons.FaShoppingCart size={20} />
             </button>
           </div>
         </div>
@@ -58,14 +58,14 @@ export function Header() {
               aria-label="Shopping cart"
               className="hover:opacity-80 transition-opacity"
             >
-              <FaShoppingCart size={20} />
+              <Icons.FaShoppingCart size={20} />
             </button>
             <button
               aria-label="Menu"
               onClick={() => setIsMenuOpen(true)}
               className="hover:opacity-80 transition-opacity"
             >
-              <FaBars size={20} />
+              <Icons.FaBars size={20} />
             </button>
           </div>
         </div>

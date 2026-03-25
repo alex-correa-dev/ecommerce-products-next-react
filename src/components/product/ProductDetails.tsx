@@ -8,7 +8,7 @@ import { Typography } from '../ui/Typography';
 import { Card } from '../ui/Card';
 import { CardContent } from '../ui/CardContent';
 import { Button } from '../ui/Button';
-import { FaStar } from 'react-icons/fa';
+import { Icons } from '../icons/Icons';
 
 interface ProductDetailsProps {
   productId: string;
@@ -60,7 +60,7 @@ export function ProductDetails({ productId }: ProductDetailsProps) {
         <div className="flex items-center gap-2 mb-4">
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, index) => (
-              <FaStar
+              <Icons.FaStar
                 key={index}
                 className={`${
                   index < Math.floor(product.rating.rate)

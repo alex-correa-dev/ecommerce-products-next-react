@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
-import { FaTimes } from 'react-icons/fa';
+import { Icons } from '../../icons/Icons';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -42,7 +42,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="hover:opacity-80 transition-opacity"
             aria-label="Close menu"
           >
-            <FaTimes size={24} />
+            <Icons.FaTimes size={24} />
           </button>
         </div>
         <nav className="flex flex-col gap-4 px-6">

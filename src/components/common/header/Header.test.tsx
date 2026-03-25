@@ -13,10 +13,12 @@ jest.mock('next/image', () => ({
   },
 }));
 
-jest.mock('react-icons/fa', () => ({
-  FaUser: () => <svg data-testid="user-icon" />,
-  FaShoppingCart: () => <svg data-testid="cart-icon" />,
-  FaBars: () => <svg data-testid="bars-icon" />,
+jest.mock('@/components/icons/Icons', () => ({
+  Icons: {
+    FaUser: () => <svg data-testid="user-icon" />,
+    FaShoppingCart: () => <svg data-testid="cart-icon" />,
+    FaBars: () => <svg data-testid="bars-icon" />,
+  },
 }));
 
 jest.mock('./DesktopNav', () => ({

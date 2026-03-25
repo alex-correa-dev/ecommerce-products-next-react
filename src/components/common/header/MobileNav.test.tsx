@@ -18,8 +18,10 @@ jest.mock('next/image', () => ({
   },
 }));
 
-jest.mock('react-icons/fa', () => ({
-  FaArrowLeft: () => <svg data-testid="arrow-left-icon" />,
+jest.mock('@/components/icons/Icons', () => ({
+  Icons: {
+    FaArrowLeft: () => <svg data-testid="arrow-left-icon" />,
+  },
 }));
 
 describe('MobileNav', () => {

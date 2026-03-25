@@ -8,10 +8,12 @@ jest.mock('next/image', () => ({
   },
 }));
 
-jest.mock('react-icons/fa', () => ({
-  FaYoutube: () => <svg data-testid="youtube-icon" />,
-  FaFacebook: () => <svg data-testid="facebook-icon" />,
-  FaInstagram: () => <svg data-testid="instagram-icon" />,
+jest.mock('@/components/icons/Icons', () => ({
+  Icons: {
+    FaYoutube: () => <svg data-testid="youtube-icon" />,
+    FaFacebook: () => <svg data-testid="facebook-icon" />,
+    FaInstagram: () => <svg data-testid="instagram-icon" />,
+  },
 }));
 
 describe('Footer', () => {
