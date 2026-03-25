@@ -4,7 +4,7 @@ import { FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export function Footer() {
   return (
-    <footer className="bg-orange-500 text-black hidden lg:block">
+    <footer className="bg-orange-500 text-black hidden lg:block mt-auto">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex-shrink-0">
