@@ -22,13 +22,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/components/*": ["./src/app/components/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/services/*": ["src/services/*"],
-      "@/utils/*": ["./src/app/utils/*"],
-      "@/types/*": ["./src/app/types/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/services/*": ["./src/services/*"],
       "@/providers/*": ["./src/app/providers/*"],
-      "@/constants/*": ["./src/app/constants/*"],
-      "@/enums/*": ["./src/app/enums/*"]
     }
   },
   "include": [
